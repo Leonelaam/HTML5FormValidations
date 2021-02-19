@@ -1,0 +1,21 @@
+.btn-custom{
+    background-color: gray;
+    border-color: gray;
+}
+.form-box{
+    border:1px solid silver;
+}
+.bag-radio{
+    background-color: gray;
+    border: solid gray 2px;
+}
+.border-custom{
+    border:1px solid silver;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right:0px;
+
+}
+.alert{
+    display: none;
+}

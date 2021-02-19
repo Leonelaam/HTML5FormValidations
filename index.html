@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/315133feff.js" crossorigin="anonymous"></script>
+    <title>Payment form example</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col container mt-5">
+            <!-- Form title -->
+            <div class="col border rounded-top">
+                <div class="card-header">
+                    <p class="h1">Payment form example</p>
+                </div>
+            </div>
+            <!-- Form body -->
+            <div class="col container border">
+                <!-- Alert -->
+                <div class="col-12">
+                    <div class="alert alert-danger mt-3 fw-bold" role="alert" id="alert">
+                        Some fields are missing
+                    </div>
+                </div>
+                <div class="col">
+                    <form class="row g-3" onsubmit="formValidation(event)" method="POST" novalidate>
+                        <!-- Card -->
+                        <div class="col-md-5">
+                            <label for="inputCard" class="form-label">Card #</label>
+                            <input type="number" class="form-control" id="inputCard" placeholder="xxxxxxxxxxxx">
+                        </div>
+                        <!-- CVC -->
+                        <div class="col-md-3">
+                            <label for="inputCVC" class="form-label">CVC #</label>
+                            <input type="number" class="form-control" id="inputCVC" placeholder="000">
+                        </div>
+                        <!-- Amount -->
+                        <div class="col-md-4">
+                            <label for="inputAmount" class="form-label">Amount</label>
+                            <div class="col d-flex justify-content-start">
+                                <div class="d-flex align-items-center"><i class="fas fa-dollar-sign"></i></div><input
+                                    type="number" class="form-control" id="inputAmount" placeholder="Amount">
+                            </div>
+                        </div>
+                        <!-- Name -->
+                        <div class="col-md-6">
+                            <label for="inputName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="inputName">
+                        </div>
+                        <!-- Last name -->
+                        <div class="col-md-6">
+                            <label for="inputLastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="inputLastName">
+                        </div>
+                        <!-- City -->
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <!-- State -->
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label">State</label>
+                            <select id="inputState" class="form-select">
+                                <option selected>Pick a State</option>
+                                <option>Costa Rica</option>
+                                <option>Francia</option>
+                                <option>Alemania</option>
+                            </select>
+                        </div>
+                        <!-- Postal code -->
+                        <div class="col-md-2">
+                            <label for="inputZip" class="form-label">Postal Code</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+                        <!-- Payment method -->
+                        <div class="col-md-6 p-3">
+                            <label for="inputWeAccept" class="form-label" id= "checkInput">We Accept:</label><br>
+                            <div class="p-3 mb-2 bg-secondary text-white w-50">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1"><i
+                                            class="fab fa-cc-visa"></i></label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2"><i
+                                            class="fab fa-cc-mastercard"></i></label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio3" value="option3">
+                                    <label class="form-check-label" for="inlineRadio3"><i
+                                            class="fab fa-cc-amex"></i></label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio4" value="option4">
+                                    <label class="form-check-label" for="inlineRadio3"><i
+                                            class="fab fa-cc-paypal"></i></label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Message -->
+                        <div class="col-md-6">
+                            <label for="inputMessage" class="form-label">Message</label>
+                            <div class="form-floating">
+                                <textarea class="form-control" id="floatingMessage" style="height: 100px"></textarea>
+                            </div>
+                            <p for="floatingMessage" class="text-muted fs-6 fst-italic">Add any notes here.</p>
+                        </div>
+
+                </div>
+            </div>
+            <!-- Form buttons -->
+            <div class="col container card-header border rounded-bottom d-flex justify-content-end">
+                <!-- Cancel button -->
+                <div class="col-md-1">
+                    <button type="" class="btn btn-secondary">Cancel</button>
+                </div>
+                <!-- Send button -->
+                <div class="col-md-1">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src="validation.js"></script>
+</body>
+
+</html>
